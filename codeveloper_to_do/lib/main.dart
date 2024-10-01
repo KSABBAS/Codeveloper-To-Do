@@ -33,6 +33,7 @@ class _ToDoAppState extends State<ToDoApp> {
       child: Center(child: Text("hi")),
       afterAnimationIsDone: () {
         Get.offNamed("LogIn");
+        //kareem said edit
       },
     );
   }
