@@ -27,16 +27,6 @@ class _ToDoAppState extends State<ToDoApp> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-    return SplashViewPage(
-      poweredByColor: UsedColors.White,
-      backgroundColor: UsedColors.Orange,
-      child: Center(child: Text("hi")),
-      afterAnimationIsDone: () {
-        Get.offNamed("LogIn");
-        //kareem said edit
-        //kareem ahmed edit
-        //hager edit
-      },
-    );
+    return Loginview();
   }
 }
