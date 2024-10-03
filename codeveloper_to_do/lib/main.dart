@@ -1,14 +1,15 @@
-import 'package:codeveloper_to_do/Constants/ColorsUsded.dart';
-import 'package:codeveloper_to_do/MyTools.dart';
 import 'package:codeveloper_to_do/View/HomePage.dart';
 import 'package:codeveloper_to_do/auth/Login/LogInView.dart';
 import 'package:codeveloper_to_do/auth/SignUp/SignUpView.dart';
+import 'package:codeveloper_to_do/data/loginData.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 
-void main() {
+late bool loggedIn;
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  loggedIn = await LogInData.LoggedInCheck();
   runApp(GetMaterialApp(getPages: [
     GetPage(name: "/Home", page: () => HomePage()),
     GetPage(name: "/LogIn", page: () => Loginview()),
@@ -26,7 +27,8 @@ class ToDoApp extends StatefulWidget {
 class _ToDoAppState extends State<ToDoApp> {
   @override
   Widget build(BuildContext context) {
+    print("=========== Logged In : $loggedIn");
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-    return Loginview();
+    return (loggedIn) ? HomePage() : Loginview();
   }
 }

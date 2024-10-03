@@ -2,6 +2,9 @@ import 'package:codeveloper_to_do/Constants/ColorsUsded.dart';
 import 'package:codeveloper_to_do/MyTools.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 class Loginview extends StatelessWidget {
   const Loginview({super.key});
 
@@ -78,13 +81,18 @@ class Loginview extends StatelessWidget {
                 MyButton(
                   text: "Login",
                   buttonColor: UsedColors.Blue,
-                  onTap: () {},
+                  onTap: () async {
+                    // SharedPreferences sharedPreferences =
+                    //     await SharedPreferences.getInstance();
+                    // sharedPreferences.setBool("LoggedIn", true);
+                    // Get.toNamed("Home");
+                  },
                 ),
                 PMaker(
                   top: 30,
                 ),
                 Row(
-                  mainAxisAlignment:MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TMaker(
                         text: "First time ?",
@@ -94,8 +102,9 @@ class Loginview extends StatelessWidget {
                     PMaker(
                       left: 10,
                     ),
-                    TextButton(onPressed:() {
-                    }, child: TMaker(
+                    TextButton(
+                        onPressed: () {},
+                        child: TMaker(
                             text: "Sign Up",
                             fontSize: 20,
                             fontWeight: FontWeight.w500,
@@ -120,25 +129,43 @@ class Loginview extends StatelessWidget {
             ],
             margin: EdgeInsets.symmetric(horizontal: 20),
             padding: EdgeInsets.only(top: 15),
-            child: Column(children: [
-              TMaker(
-                text: "Our Social Media",
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-                color: const Color.fromARGB(255, 171, 171, 171)),
-              Expanded(child: CMaker()),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-              IconButton(onPressed:() {
-              }, icon: Icon(Icons.facebook,size: 60,color: UsedColors.Blue,)),
-              IconButton(onPressed:() {
-              }, icon: Icon(Icons.tiktok,size: 60,color: UsedColors.Blue,)),
-              IconButton(onPressed:() {
-              }, icon: Icon(Icons.tiktok,size: 60,color: UsedColors.Blue,)),
-              ],),
-              Expanded(child: CMaker()),
-            ],),
+            child: Column(
+              children: [
+                TMaker(
+                    text: "Our Social Media",
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: const Color.fromARGB(255, 171, 171, 171)),
+                Expanded(child: CMaker()),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.facebook,
+                          size: 60,
+                          color: UsedColors.Blue,
+                        )),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.tiktok,
+                          size: 60,
+                          color: UsedColors.Blue,
+                        )),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.tiktok,
+                          size: 60,
+                          color: UsedColors.Blue,
+                        )),
+                  ],
+                ),
+                Expanded(child: CMaker()),
+              ],
+            ),
           ),
           Expanded(flex: 6, child: Container()),
         ],
