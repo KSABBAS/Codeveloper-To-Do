@@ -75,19 +75,24 @@ class TMaker extends StatelessWidget {
       required this.fontSize,
       required this.fontWeight,
       required this.color,
-      this.textAlign});
+      this.textAlign,
+      this.fontFamily});
   String text;
   double fontSize;
   FontWeight fontWeight;
   Color color;
   TextAlign? textAlign;
+  String? fontFamily;
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       textAlign: textAlign ?? TextAlign.center,
-      style:
-          TextStyle(fontSize: fontSize, fontWeight: fontWeight, color: color),
+      style: TextStyle(
+          fontFamily: fontFamily,
+          fontSize: fontSize,
+          fontWeight: fontWeight,
+          color: color),
     );
   }
 }
@@ -203,6 +208,7 @@ class TFFMaker extends StatefulWidget {
     this.onChanged,
     this.onSaved,
     this.lines,
+    
   });
   Widget? prefix;
   bool? enabled;
@@ -321,7 +327,9 @@ class SplashViewPage extends StatefulWidget {
       this.animationDurationInMilliseconds,
       this.afterAnimationDurationInMilliseconds,
       this.reverseAnimation,
-      required this.afterAnimationIsDone});
+      required this.afterAnimationIsDone,
+      this.textFontFamily
+      });
   Gradient? backgroundGradient;
   Color? backgroundColor;
   Color? poweredByColor;
@@ -331,6 +339,7 @@ class SplashViewPage extends StatefulWidget {
   int? animationDurationInMilliseconds;
   int? afterAnimationDurationInMilliseconds;
   bool? reverseAnimation;
+  String? textFontFamily;
   Function()? afterAnimationIsDone;
   @override
   State<SplashViewPage> createState() => _SplashViewPageState();
@@ -407,6 +416,7 @@ class _SplashViewPageState extends State<SplashViewPage>
                       child: Opacity(
                           opacity: fading?.value,
                           child: TMaker(
+                              fontFamily: widget.textFontFamily,
                               text: "Powered By",
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
@@ -419,6 +429,7 @@ class _SplashViewPageState extends State<SplashViewPage>
                       child: Opacity(
                           opacity: fading?.value,
                           child: TMaker(
+                              fontFamily: widget.textFontFamily,
                               text: "Codeveloper",
                               fontSize: 25,
                               fontWeight: FontWeight.w600,
@@ -1214,8 +1225,9 @@ class _NavBarState extends State<NavBar> {
 }
 
 class NowClock extends StatefulWidget {
-  NowClock({super.key, this.BackGroundColor});
+  NowClock({super.key, this.BackGroundColor,this.textFontFamily});
   Color? BackGroundColor;
+  String? textFontFamily;
   @override
   State<NowClock> createState() => _NowClockState();
 }
@@ -1260,6 +1272,7 @@ class _NowClockState extends State<NowClock> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     Widget HourTW = TMaker(
+      fontFamily: widget.textFontFamily,
         text: (DateTime.now().hour.toInt() > 11)
             ? DateTime.now().add(Duration(hours: -11)).hour.toString()
             : DateTime.now().add(Duration(hours: 1)).hour.toString(),
@@ -1267,11 +1280,13 @@ class _NowClockState extends State<NowClock> with TickerProviderStateMixin {
         fontWeight: FontWeight.w800,
         color: Colors.white);
     Widget MinutesTW = TMaker(
+      fontFamily: widget.textFontFamily,
         text: DateTime.now().minute.toString(),
         fontSize: 50,
         fontWeight: FontWeight.w800,
         color: Colors.white);
     Widget SecondsTW = TMaker(
+      fontFamily: widget.textFontFamily,
         text: DateTime.now().second.toString(),
         fontSize: 50,
         fontWeight: FontWeight.w800,
@@ -1312,6 +1327,7 @@ class _NowClockState extends State<NowClock> with TickerProviderStateMixin {
           ),
           Expanded(child: Container()),
           TMaker(
+            fontFamily: widget.textFontFamily,
               text: ":",
               fontSize: 50,
               fontWeight: FontWeight.w800,
@@ -1348,6 +1364,7 @@ class _NowClockState extends State<NowClock> with TickerProviderStateMixin {
           ),
           Expanded(child: Container()),
           TMaker(
+            fontFamily: widget.textFontFamily,
               text: ":",
               fontSize: 50,
               fontWeight: FontWeight.w800,
@@ -1405,7 +1422,8 @@ class MyButton extends StatefulWidget {
       this.gradient,
       this.margin,
       this.padding,
-      this.onTap});
+      this.onTap,
+      this.textFontFamily});
   String text;
   void Function()? onTap;
   double? textFont;
@@ -1420,6 +1438,7 @@ class MyButton extends StatefulWidget {
   EdgeInsetsGeometry? margin;
   Gradient? gradient;
   BoxBorder? border;
+  String? textFontFamily;
   @override
   State<MyButton> createState() => _MyButtonState();
 }
@@ -1452,6 +1471,7 @@ class _MyButtonState extends State<MyButton> {
                 ]
               : null,
           child: TMaker(
+              fontFamily: widget.textFontFamily,
               text: widget.text,
               fontSize: widget.textFont ?? 20,
               fontWeight: widget.textFontWeight ?? FontWeight.w500,
