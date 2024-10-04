@@ -1,11 +1,13 @@
 import 'package:codeveloper_to_do/Constants/ColorsUsded.dart';
 import 'package:codeveloper_to_do/MyTools.dart';
+import 'package:codeveloper_to_do/data/SignUpData.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Signupview extends StatelessWidget {
   Signupview({super.key});
-  GlobalKey<FormState> SignUpKey = GlobalKey();
+  final GlobalKey<FormState> SignUpKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,21 +41,24 @@ class Signupview extends StatelessWidget {
                   circularRadius: 20,
                   height: 400,
                   width: double.infinity,
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                         blurRadius: 10,
-                        color: const Color.fromARGB(91, 0, 0, 0),
+                        color: Color.fromARGB(91, 0, 0, 0),
                         offset: Offset(2, 2),
                         spreadRadius: .3)
                   ],
-                  margin: EdgeInsets.symmetric(horizontal: 20),
-                  padding: EdgeInsets.symmetric(horizontal: 30),
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: ListView(
                     children: [
                       PMaker(
-                        top: 20,
+                        top: 50,
                       ),
                       TFFMaker(
+                        onSaved: (value) {
+                          SignUpData.name = value;
+                        },
                         label: TMaker(
                             fontFamily: "Courgette",
                             text: "Name",
@@ -64,9 +69,10 @@ class Signupview extends StatelessWidget {
                           if (value!.isEmpty) {
                             return "field is empty";
                           }
-                          if (value!.split(" ").length < 3) {
+                          if (value.split(" ").length < 3) {
                             return "the field must be 3 names";
                           }
+                          return null;
                         },
                         enabledCircularRadius: 15,
                         focusedCircularRadius: 15,
@@ -78,28 +84,83 @@ class Signupview extends StatelessWidget {
                       PMaker(
                         top: 20,
                       ),
-                      TextField(
-                        onChanged: (value) {
-                          print(value);
+                      TFFMaker(
+                        onSaved: (value) {
+                          SignUpData.Email = value;
                         },
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
-                              borderSide:
-                                  BorderSide(width: 1, color: Colors.black)),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
-                              borderSide:
-                                  BorderSide(width: 2, color: UsedColors.Blue)),
-                          label: TMaker(
-                              fontFamily: "Courgette",
-                              text: "password",
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                              color: const Color.fromARGB(255, 154, 154, 154)),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                        ),
+                        label: TMaker(
+                            fontFamily: "Courgette",
+                            text: "Email",
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            color: const Color.fromARGB(255, 154, 154, 154)),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "field is empty";
+                          }
+                          if ((!value.endsWith("@gmail.com") ||
+                                  !(value.length > 10)) &&
+                              (!value.endsWith("@yahoo.com") ||
+                                  !(value.length > 10))) {
+                            return "صيغة الايميل ليسة صحيحة";
+                          }
+                          return null;
+                        },
+                        enabledCircularRadius: 15,
+                        focusedCircularRadius: 15,
+                        enabledBorderwidth: 1,
+                        focusedBorderwidth: 2,
+                        enabledBorderColor: Colors.black,
+                        focusedBorderColor: UsedColors.Blue,
+                      ),
+                      PMaker(
+                        top: 20,
+                      ),
+                      TFFMaker(
+                        onSaved: (value) {
+                          SignUpData.password = value;
+                        },
+                        label: TMaker(
+                            fontFamily: "Courgette",
+                            text: "Password",
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            color: const Color.fromARGB(255, 154, 154, 154)),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "field is empty";
+                          }
+                          if (value.length < 6) {
+                            return "it must be longer than 6 characters";
+                          }
+                          return null;
+                        },
+                        enabledCircularRadius: 15,
+                        focusedCircularRadius: 15,
+                        enabledBorderwidth: 1,
+                        focusedBorderwidth: 2,
+                        enabledBorderColor: Colors.black,
+                        focusedBorderColor: UsedColors.Blue,
+                      ),
+                      PMaker(
+                        top: 20,
+                      ),
+                      TFFMaker(
+                        onSaved: (value) {
+                          SignUpData.phone = value;
+                        },
+                        label: TMaker(
+                            fontFamily: "Courgette",
+                            text: "Number",
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            color: const Color.fromARGB(255, 154, 154, 154)),
+                        enabledCircularRadius: 15,
+                        focusedCircularRadius: 15,
+                        enabledBorderwidth: 1,
+                        focusedBorderwidth: 2,
+                        enabledBorderColor: Colors.black,
+                        focusedBorderColor: UsedColors.Blue,
                       ),
                       PMaker(
                         top: 50,
@@ -112,11 +173,14 @@ class Signupview extends StatelessWidget {
                         text: "Sign Up",
                         buttonColor: UsedColors.Blue,
                         onTap: () async {
-                          SignUpKey.currentState!.validate();
-                          // SharedPreferences sharedPreferences =
-                          //     await SharedPreferences.getInstance();
-                          // sharedPreferences.setBool("LoggedIn", true);
-                          // Get.toNamed("Home");
+                          if (SignUpKey.currentState!.validate()) {
+                            SignUpKey.currentState!.save();
+                            SignUpData.storeSignUpInfo();
+                            SharedPreferences sharedPreferences =
+                                await SharedPreferences.getInstance();
+                            sharedPreferences.setBool("LoggedIn", true);
+                            Get.toNamed("Home");
+                          }
                         },
                       ),
                       PMaker(
@@ -146,6 +210,9 @@ class Signupview extends StatelessWidget {
                                   color: UsedColors.Blue)),
                         ],
                       ),
+                      PMaker(
+                        top: 30,
+                      ),
                     ],
                   ),
                 ),
@@ -155,15 +222,15 @@ class Signupview extends StatelessWidget {
                   circularRadius: 20,
                   height: 150,
                   width: double.infinity,
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                         blurRadius: 10,
-                        color: const Color.fromARGB(91, 0, 0, 0),
+                        color: Color.fromARGB(91, 0, 0, 0),
                         offset: Offset(2, 2),
                         spreadRadius: .3)
                   ],
-                  margin: EdgeInsets.symmetric(horizontal: 20),
-                  padding: EdgeInsets.only(top: 15),
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.only(top: 15),
                   child: Column(
                     children: [
                       TMaker(

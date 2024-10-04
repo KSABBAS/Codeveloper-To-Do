@@ -5,8 +5,7 @@ class SignUpData {
   static String? Email = null;
   static String? phone = null;
   static String? password = null;
-  static String? ConfirmPassword = null;
-  Future<bool> storeSignUpInfo() async {
+  static Future<bool> storeSignUpInfo() async {
     if (_CheckUserExistance()) {
       print("user already exists");
       return false;
@@ -14,14 +13,14 @@ class SignUpData {
       SharedPreferences sharedPreferences =
           await SharedPreferences.getInstance();
       sharedPreferences.setStringList(
-          "UserData", [name!, Email!, phone!, password!, ConfirmPassword!]);
+          "UserData", [name!, Email!, phone!, password!]);
       sharedPreferences.setBool("LoggedIn",true);
       print(sharedPreferences.getStringList("UserData"));
       return true;
     }
   }
 
-  bool _CheckUserExistance() {
+  static bool _CheckUserExistance() {
     // here we will use this method to check if the account is linked to another asccount
     return false;
   }
