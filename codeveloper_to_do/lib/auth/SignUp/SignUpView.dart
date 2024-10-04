@@ -175,11 +175,9 @@ class Signupview extends StatelessWidget {
                         onTap: () async {
                           if (SignUpKey.currentState!.validate()) {
                             SignUpKey.currentState!.save();
-                            SignUpData.storeSignUpInfo();
-                            SharedPreferences sharedPreferences =
-                                await SharedPreferences.getInstance();
-                            sharedPreferences.setBool("LoggedIn", true);
+                            if(await SignUpData.storeSignUpInfo()){
                             Get.toNamed("Home");
+                            }
                           }
                         },
                       ),
