@@ -32,6 +32,7 @@ class LogInData {
   static Future<bool> LoggedInCheck() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     if (sharedPreferences.getBool("LoggedIn") ?? false) {
+      print("==============================${sharedPreferences.getStringList("UserData")}");
       return true;
     } else {
       return false;
