@@ -30,8 +30,8 @@ class _ToDoAppState extends State<ToDoApp> {
     print("=========== Logged In : $loggedIn");
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
     return (
-    loggedIn
-    // false
-    ) ? HomePage() : Loginview();
+      // loggedIn
+      true
+      ) ? HomePage() : Loginview();
   }
 }
