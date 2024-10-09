@@ -1,6 +1,7 @@
 import 'package:codeveloper_to_do/Constants/ColorsUsded.dart';
 import 'package:codeveloper_to_do/MyTools.dart';
-import 'package:codeveloper_to_do/View/Pages/PageOne.dart';
+import 'package:codeveloper_to_do/View/Pages/PageOne/PageOne.dart';
+import 'package:codeveloper_to_do/View/Pages/PageTwo/PageTwo.dart';
 import 'package:codeveloper_to_do/data/Tasks/SpecificTasks/TaskWithDataToDo.dart';
 import 'package:codeveloper_to_do/data/Tasks/Task.dart';
 import 'package:flutter/material.dart';
@@ -27,9 +28,7 @@ class _HomePageState extends State<HomePage> {
         barColor: UsedColors.lightGray,
         pages: [
     PageOne(),
-    Center(
-      child: Text("secound page"),
-    ),
+    PageTwo(),
     Center(
       child: Text("third page"),
     ),

@@ -3,17 +3,17 @@ import 'package:codeveloper_to_do/data/Tasks/Task.dart';
 class TaskWithDataToDo extends Task {
   // DateTime Datetime;
   @override
-  void AddTask(String file, String title, String body, {DateTime? datetime}) {
-    super.AddTask(file, title, body);
-    super.AddValue(file, datetime);
+  static void AddTask(String file, String title, String body, {DateTime? datetime}) {
+    AddTask(file, title, body);
+    Task.AddValue(file, datetime);
   }
 
   @override
-  void change(String file, int index, String title, String body,
+  static void change(String file, int index, String title, String body,
       {DateTime? datetime}) {
-    super.change(file, index, title, body);
-    Task.Data[file]![index][4] = datetime;
+    change(file, index, title, body);
+    Task.Data[file]![index][0] = datetime;
   }
 
-  void FireAlarm() {}
+  static void FireAlarm() {}
 }
