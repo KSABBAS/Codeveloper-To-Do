@@ -1024,26 +1024,25 @@ class NavBar extends StatefulWidget {
       required this.height,
       required this.width,
       this.barColor,
-      this.sectedIconColor,
+      this.sectedBackgeoundIconColor,
       this.pageBackgroundColor,
-      this.iconBackgroundColor,
-      this.unselectedIconColor,
-      this.iconSize,
+      this.unselectedBackgeoundIconColor,
       this.iconFrameHeight,
-      this.iconFrameWidth});
+      this.iconFrameWidth,
+      this.iconFramePadding
+      });
   List pages;
-  List iconsList;
+  List<Widget> iconsList;
   String? orientation;
   double height;
   double width;
   double? iconFrameHeight;
   double? iconFrameWidth;
+  double? iconFramePadding;
   Color? barColor;
-  Color? sectedIconColor;
-  Color? unselectedIconColor;
-  Color? iconBackgroundColor;
+  Color? sectedBackgeoundIconColor;
+  Color? unselectedBackgeoundIconColor;
   Color? pageBackgroundColor;
-  double? iconSize;
   @override
   State<NavBar> createState() => _NavBarState();
 }
@@ -1100,24 +1099,17 @@ class _NavBarState extends State<NavBar> {
                               child: CMaker(
                                   alignment: Alignment.center,
                                   child: CMaker(
+                                    padding: EdgeInsets.all(widget.iconFramePadding??0),
                                       alignment: Alignment.center,
                                       height: widget.iconFrameHeight ?? 60,
                                       width: widget.iconFrameWidth ?? 60,
                                       circularRadius: 15,
                                       color: (PageIndex == index)
-                                          ? widget.iconBackgroundColor ??
+                                          ? widget.sectedBackgeoundIconColor ??
                                               Color.fromARGB(255, 0, 0, 0)
-                                          : widget.unselectedIconColor ??
+                                          : widget.unselectedBackgeoundIconColor ??
                                               Colors.transparent,
-                                      child: Icon(
-                                        widget.iconsList[index],
-                                        color: (PageIndex == index)
-                                            ? widget.sectedIconColor ??
-                                                Colors.white
-                                            : widget.unselectedIconColor ??
-                                                Colors.black,
-                                        size: widget.iconSize,
-                                      ))),
+                                      child: widget.iconsList[index])),
                             ),
                             Container(
                               height: (widget.height -
@@ -1184,23 +1176,17 @@ class _NavBarState extends State<NavBar> {
                               child: CMaker(
                                   alignment: Alignment.center,
                                   child: CMaker(
+                                    padding: EdgeInsets.all(widget.iconFramePadding??0),
                                       alignment: Alignment.center,
                                       height: widget.iconFrameHeight ?? 60,
                                       width: widget.iconFrameWidth ?? 60,
                                       circularRadius: 15,
                                       color: (PageIndex == index)
-                                          ? widget.iconBackgroundColor ??
+                                          ? widget.sectedBackgeoundIconColor ??
                                               Color.fromARGB(255, 0, 0, 0)
-                                          : widget.unselectedIconColor,
-                                      child: Icon(
-                                        widget.iconsList[index],
-                                        color: (PageIndex == index)
-                                            ? widget.sectedIconColor ??
-                                                Colors.white
-                                            : widget.unselectedIconColor ??
-                                                Colors.black,
-                                        size: widget.iconSize,
-                                      ))),
+                                          : widget.unselectedBackgeoundIconColor ??
+                                              Colors.transparent,
+                                      child: widget.iconsList[index])),
                             ),
                             Container(
                               width: (widget.width -

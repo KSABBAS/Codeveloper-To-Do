@@ -16,7 +16,7 @@ class _DatedTaskState extends State<DatedTask> {
       height: 100,
       width: double.infinity,
       margin: const EdgeInsets.symmetric(horizontal: 20),
-      color: UsedColors.TaskColor,
+      color: UsedColors.White,
       circularRadius: 20,
       boxShadow: const [
         BoxShadow(

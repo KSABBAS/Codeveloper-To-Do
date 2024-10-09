@@ -1,3 +1,5 @@
+import 'package:codeveloper_to_do/Constants/ColorsUsded.dart';
+import 'package:codeveloper_to_do/MyTools.dart';
 import 'package:codeveloper_to_do/View/Pages/PageOne.dart';
 import 'package:codeveloper_to_do/data/Tasks/SpecificTasks/TaskWithDataToDo.dart';
 import 'package:codeveloper_to_do/data/Tasks/Task.dart';
@@ -12,55 +14,34 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Widget> Pages = [
-    PageOne(),
-    Center(
-      child: Text("secound page"),
-    ),
-  ];
   NotchBottomBarController pageController = NotchBottomBarController(index: 0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: AnimatedNotchBottomBar(
-        kBottomRadius: 0,
-        kIconSize: 20,
-        onTap: (value) {
-          print(value);
-        },
-        bottomBarItems: const [
-          BottomBarItem(
-            inActiveItem: Icon(
-              Icons.home_filled,
-              color: Colors.blueGrey,
-            ),
-            activeItem: Icon(
-              Icons.home_filled,
-              color: Colors.blueAccent,
-            ),
-            itemLabel: 'Page 1',
-          ),
-          BottomBarItem(
-            inActiveItem: Icon(
-              Icons.star,
-              color: Colors.blueGrey,
-            ),
-            activeItem: Icon(
-              Icons.star,
-              color: Colors.blueAccent,
-            ),
-            itemLabel: 'Page 2',
-          ),
-        ],
-        notchBottomBarController: pageController,
-      ),
-      // body:Pages[PageController.index],
-      body: PageView.builder(
-        controller: PageController(initialPage: 0),
-        itemBuilder: (context, index) {
-          return Pages[pageController.index];
-        },
-      ),
+      backgroundColor: UsedColors.White,
+      body: NavBar(
+        iconFramePadding: 10,
+        iconFrameHeight: 60,
+        iconFrameWidth: 60,
+        sectedBackgeoundIconColor: UsedColors.White,
+        barColor: UsedColors.lightGray,
+        pages: [
+    PageOne(),
+    Center(
+      child: Text("secound page"),
+    ),
+    Center(
+      child: Text("third page"),
+    ),
+    Center(
+      child: Text("fourth page"),
+    ),
+  ], iconsList: [
+        Image.asset("images/bottomNavigationBarIcons/home.png"),
+        Image.asset("images/bottomNavigationBarIcons/Task.png"),
+        Image.asset("images/bottomNavigationBarIcons/Groub.png"),
+        Image.asset("images/bottomNavigationBarIcons/person.png")
+  ], height: 80, width: PageWidth(context)-50),
     );
   }
 }
