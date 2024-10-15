@@ -1,6 +1,12 @@
 import 'package:codeveloper_to_do/MyTools.dart';
+import 'package:codeveloper_to_do/View/Tasks/LocalTasks/DatedTasks/DatedTask.dart';
+import 'package:codeveloper_to_do/View/Tasks/LocalTasks/NoDateTasks/NoDateTask.dart';
+import 'package:codeveloper_to_do/View/Tasks/TeamsTasks/DatedTasks/TeamDatedTask.dart';
+import 'package:codeveloper_to_do/data/SignUpData.dart';
 import 'package:codeveloper_to_do/data/Tasks/SpecificTasks/TaskWithDataToDo.dart';
 import 'package:codeveloper_to_do/data/Tasks/Task.dart';
+import 'package:codeveloper_to_do/data/loginData.dart';
+import 'package:codeveloper_to_do/main.dart';
 import 'package:flutter/material.dart';
 
 class PageOne extends StatefulWidget {
@@ -42,99 +48,54 @@ class _PageOneState extends State<PageOne> {
         top: 10,
         left: 5,
       ),
-      CMaker(
-        padding: EdgeInsets.only(right: 150),
-        width: double.infinity,
-        height: 100,
-        color: const Color.fromARGB(255, 255, 255, 255),
+      InkWell(
+        onTap: () {
+          Task.AddLocalTaskOnTop("prayer", "hi", "by", false);
+          setState(() {});
+        },
         child: CMaker(
-          alignment: Alignment.center,
-          circularRadius: 20,
-          child: TMaker(
-            text: "filter",
-            fontSize: 50,
-            fontWeight: FontWeight.w400,
-            color: Colors.white,
+          padding: EdgeInsets.only(right: 150),
+          width: double.infinity,
+          height: 100,
+          color: const Color.fromARGB(255, 255, 255, 255),
+          child: CMaker(
+            alignment: Alignment.center,
+            circularRadius: 20,
+            child: TMaker(
+              text: "filter",
+              fontSize: 50,
+              fontWeight: FontWeight.w400,
+              color: Colors.white,
+            ),
+            color: const Color.fromARGB(115, 96, 85, 85),
+            margin: EdgeInsets.symmetric(horizontal: 50),
+            height: 75,
           ),
-          color: const Color.fromARGB(115, 96, 85, 85),
-          margin: EdgeInsets.symmetric(horizontal: 50),
-          height: 75,
+          alignment: Alignment.centerLeft,
         ),
-        alignment: Alignment.centerLeft,
       ),
       PMaker(top: 50),
       Container(
-          height: 900,
-          child: ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: false,
-            itemCount: 1,
-            itemBuilder: (context, index) {
-              return CMaker(
-                  color: const Color.fromARGB(255, 36, 255, 200),
-                  circularRadius: 20,
-                  margin:
-                      EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
-                  height: 100,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 2,
-                        child: CMaker(
-                          height: 100,
-                          child: Column(
-                            children: [
-                              CMaker(
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: CMaker(
-                                        height: 50,
-                                        child: Text("Hager"),
-                                        alignment: Alignment.center,
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: CMaker(
-                                        alignment: Alignment.center,
-                                        height: 50,
-                                        child: Text("Hager"),
-                                      ),
-                                    ),
-                                    Expanded(
-                                        child: CMaker(
-                                      alignment: Alignment.center,
-                                      height: 50,
-                                      child: Text("Hager"),
-                                    )),
-                                  ],
-                                ),
-                              ),
-                              CMaker(
-                                height: 50,
-                                padding: EdgeInsets.only(left: 25),
-                                alignment: Alignment.centerLeft,
-                                width: double.infinity,
-                                child: Text("Hager"),
-                                //  color: const Color.fromARGB(5, 90, 106, 102),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                          child: CMaker(
-                        height: 100,
-                        alignment: Alignment.center,
-                        child: Checkbox(
-                          value: true,
-                          onChanged: (value) {},
-                        ),
-                      )),
-                    ],
-                  ));
-            },
-          )),
+        height: (Task.MakeTodaysList(UserData![1]).length) * 120,
+        child: ListView.builder(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: false,
+          itemCount: Task.MakeTodaysList(UserData![1]).length,
+          itemBuilder: (context, index) {
+            if (Task.MakeTodaysList(UserData![1])[index].length == 2) {
+              return NoDateTask(
+                  file: Task.MakeTodaysList(UserData![1])[index][0],
+                  index: Task.MakeTodaysList(UserData![1])[index][1]);
+            } else {
+              return TeamDatedTask(
+                  program: Task.MakeTodaysList(UserData![1])[index][0],
+                  member: Task.MakeTodaysList(UserData![1])[index][1],
+                  index: Task.MakeTodaysList(UserData![1])[index][2]);
+            }
+          },
+        ),
+      ),
+      PMaker(top: 120)
     ]);
   }
 }

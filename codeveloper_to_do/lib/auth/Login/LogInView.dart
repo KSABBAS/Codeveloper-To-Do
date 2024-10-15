@@ -2,10 +2,10 @@ import 'package:codeveloper_to_do/Constants/ColorsUsded.dart';
 import 'package:codeveloper_to_do/MyTools.dart';
 import 'package:codeveloper_to_do/data/SignUpData.dart';
 import 'package:codeveloper_to_do/data/loginData.dart';
+import 'package:codeveloper_to_do/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class Loginview extends StatelessWidget {
   Loginview({super.key});
@@ -130,6 +130,8 @@ class Loginview extends StatelessWidget {
                           if (LogInKey.currentState!.validate()) {
                             LogInKey.currentState!.save();
                             if(await LogInData.storeLogInInfo()){
+                              UserData =(await SignUpData.GetUserData())!;
+                              print("UserData=====================$UserData");
                             Get.toNamed("Home");
                             }
                           }

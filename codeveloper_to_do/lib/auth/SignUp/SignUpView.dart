@@ -1,9 +1,9 @@
 import 'package:codeveloper_to_do/Constants/ColorsUsded.dart';
 import 'package:codeveloper_to_do/MyTools.dart';
 import 'package:codeveloper_to_do/data/SignUpData.dart';
+import 'package:codeveloper_to_do/main.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class Signupview extends StatelessWidget {
   Signupview({super.key});
@@ -176,6 +176,8 @@ class Signupview extends StatelessWidget {
                           if (SignUpKey.currentState!.validate()) {
                             SignUpKey.currentState!.save();
                             if(await SignUpData.storeSignUpInfo()){
+                              UserData =(await SignUpData.GetUserData())!;
+                              print("UserData=====================$UserData");
                             Get.toNamed("Home");
                             }
                           }

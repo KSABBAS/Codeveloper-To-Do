@@ -1,6 +1,8 @@
 import 'package:codeveloper_to_do/Constants/ColorsUsded.dart';
 import 'package:codeveloper_to_do/MyTools.dart';
+import 'package:codeveloper_to_do/View/Pages/PageFour/PageFour.dart';
 import 'package:codeveloper_to_do/View/Pages/PageOne/PageOne.dart';
+import 'package:codeveloper_to_do/View/Pages/PageThree/PageThree.dart';
 import 'package:codeveloper_to_do/View/Pages/PageTwo/PageTwo.dart';
 import 'package:codeveloper_to_do/data/Tasks/SpecificTasks/TaskWithDataToDo.dart';
 import 'package:codeveloper_to_do/data/Tasks/Task.dart';
@@ -29,12 +31,8 @@ class _HomePageState extends State<HomePage> {
         pages: [
     PageOne(),
     PageTwo(),
-    Center(
-      child: Text("third page"),
-    ),
-    Center(
-      child: Text("fourth page"),
-    ),
+    PageThree(),
+    PageFour()
   ], iconsList: [
         Image.asset("images/bottomNavigationBarIcons/home.png"),
         Image.asset("images/bottomNavigationBarIcons/Task.png"),

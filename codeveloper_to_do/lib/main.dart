@@ -13,7 +13,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   loggedIn = await LogInData.LoggedInCheck();
   if (loggedIn) {
-    UserData =(await SignUpData.GetUserData())!;
+    UserData = (await SignUpData.GetUserData())!;
+    print("UserData=====================$UserData");
   }
   runApp(GetMaterialApp(getPages: [
     GetPage(name: "/Home", page: () => HomePage()),
@@ -34,9 +35,8 @@ class _ToDoAppState extends State<ToDoApp> {
   Widget build(BuildContext context) {
     print("=========== Logged In : $loggedIn");
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-    return (
-      // loggedIn
-        true
+    return (loggedIn
+        // true
         )
         ? HomePage()
         : Loginview();
