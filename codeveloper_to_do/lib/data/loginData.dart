@@ -12,7 +12,6 @@ class LogInData {
           await SharedPreferences.getInstance();
       sharedPreferences.setStringList("UserData", await _GetDataFromServer());
       await sharedPreferences.setBool("LoggedIn", true);
-      print(await _GetDataFromServer());
       print("=================Logged in successfully");
       return true;
     }

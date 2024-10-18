@@ -16,7 +16,6 @@ class _PageFourState extends State<PageFour> {
       itemCount: Task.GetTeamTaskData("Project 2", "Mohamed hosny", 0).length,
       itemBuilder: (context, index) {
         // Task.AddTeamValue("Project 2", "Mohamed hosny", 1,"hi");
-        print(Task.GetTeamTaskData("Project 2", "Mohamed hosny", 0)[index + 1]);
         return TMaker(
             text: Task.GetTeamTaskData("Project 2", "Mohamed hosny", 0)[index],
             fontSize: 50,

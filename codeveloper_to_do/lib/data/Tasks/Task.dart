@@ -7,14 +7,16 @@ class Task {
         "dohr", //title,
         "you have to pray dohr", //body,
         false, //task is done(true) if is not done (false),
-        true,//is it today
+        true, //is it today,
+        5,//importance of the task
       ],
       [
         "6:14", //Task Date
         "asr", //title,
         "you have to pray asr", //body,
         false, //task is done(true) if is not done (false),
-        false,//is it today
+        false, //is it today,
+        3,//importance of the task
       ],
     ],
     "other": [
@@ -24,14 +26,16 @@ class Task {
         "dohr", //title,
         "you have to pray dohr", //body,
         false, //task is done(true) if is not done (false),
-        true,//is it today
+        true, //is it today,
+        4,//importance of the task
       ],
       [
         "6:14", //Task Date
         "asr", //title,
         "you have to pray asr", //body,
         false, //task is done(true) if is not done (false),
-        true,//is it today
+        true, //is it today,
+        1,//importance of the task
       ],
     ],
   }; //a simulation for local datebase tasks,
@@ -46,21 +50,24 @@ class Task {
               "training", //title,
               "you have to train", //body
               false, //task is done(true) if is not done (false)
-              false,//is it today
+              false, //is it today
+              2,//importance of the task
             ], //Task1
             [
               "no date", //the type of the task
               "training", //title,
               "you have to train", //body
               false, //task is done(true) if is not done (false)
-              true,//is it today
+              true, //is it today
+              2,//importance of the task
             ], //Task 2
             [
               "no date", //the type of the task
               "training", //title,
               "you have to train", //body
               false, //task is done(true) if is not done (false)
-              true,//is it today
+              true, //is it today
+              2,//importance of the task
             ], //Task 3
           ], //Member Tasks
         ],
@@ -72,21 +79,24 @@ class Task {
               "training", //title,
               "you have to train", //body
               false, //task is done(true) if is not done (false)
-              true,//is it today
+              true, //is it today
+              2,//importance of the task
             ], //Task1
             [
               "no date", //the type of the task
               "training", //title,
               "you have to train", //body
               false, //task is done(true) if is not done (false)
-              true,//is it today
+              true, //is it today
+              2,//importance of the task
             ], //Task 2
             [
               "no date", //the type of the task
               "training", //title,
               "you have to train", //body
               false, //task is done(true) if is not done (false)
-              true,//is it today
+              true, //is it today
+              2,//importance of the task
             ], //Task 3
           ], //Member Tasks
         ],
@@ -102,21 +112,24 @@ class Task {
               "training", //title,
               "you have to train", //body
               false, //task is done(true) if is not done (false)
-              true,//is it today
+              true, //is it today
+              2,//importance of the task
             ], //Task1
             [
               "no date", //the type of the task
               "training", //title,
               "you have to train", //body
               false, //task is done(true) if is not done (false)
-              true,//is it today
+              true, //is it today
+              2,//importance of the task
             ], //Task 2
             [
               "no date", //the type of the task
               "training", //title,
               "you have to train", //body
               false, //task is done(true) if is not done (false)
-              true,//is it today
+              true, //is it today
+              2,//importance of the task
             ], //Task 3
           ], //Member Tasks
         ],
@@ -128,21 +141,24 @@ class Task {
               "training", //title,
               "you have to train", //body
               false, //task is done(true) if is not done (false)
-              true,//is it today
+              true, //is it today
+              2,//importance of the task
             ], //Task1
             [
               "no hhhhhhhhhhhhhhdate", //the type of the task
               "training", //title,
               "you have to train", //body
               false, //task is done(true) if is not done (false)
-              true,//is it today
+              true, //is it today
+              2,//importance of the task
             ], //Task 2
             [
               "no date", //the type of the task
               "training", //title,
               "you have to train", //body
               false, //task is done(true) if is not done (false)
-              true,//is it today
+              true, //is it today
+              2,//importance of the task
             ], //Task 3
           ], //Member Tasks
         ],
@@ -282,18 +298,18 @@ class Task {
       for (var i = 0;
           i < LocalData[LocalData.keys.elementAt(index0)]!.length;
           i++) {
-            if(LocalData[LocalData.keys.elementAt(index0)]![i][4])
-        list.add([LocalData.keys.elementAt(index0), i]);
+        if (LocalData[LocalData.keys.elementAt(index0)]![i][4])
+          list.add([LocalData.keys.elementAt(index0), i]);
       }
     }
-      for (var index0 = 0; index0 < TeamsData.length; index0++) {
+    for (var index0 = 0; index0 < TeamsData.length; index0++) {
       String projectName = TeamsData.keys.elementAt(index0);
       for (var memberData in TeamsData[projectName]!) {
         if (memberData.containsKey(Email)) {
           String role = memberData[Email]![0]; // Member's role
           List tasks = memberData[Email]![1]; // Member's tasks list
           for (var t = 0; t < tasks.length; t++) {
-            if(tasks[t][4]){
+            if (tasks[t][4]) {
               list.add([projectName, Email, t]);
             }
           }
@@ -302,4 +318,20 @@ class Task {
     }
     return list;
   }
+
+  static int TasksDoneToday(List<List> TodayList) {
+    int number = 0;
+    for (var element in TodayList) {
+      if (element.length == 2 && GetLocalTaskData(element[0], element[1])[3]) {
+        number++;
+      } else if (element.length == 3 &&
+          GetTeamTaskData(element[0], element[1], element[2])[3]) {
+        number++;
+      }
+    }
+    return number;
+  }
+}
+_moveToLast_Lacal_(String file ,int Index){
+
 }

@@ -4,8 +4,6 @@ import 'package:codeveloper_to_do/View/Pages/PageFour/PageFour.dart';
 import 'package:codeveloper_to_do/View/Pages/PageOne/PageOne.dart';
 import 'package:codeveloper_to_do/View/Pages/PageThree/PageThree.dart';
 import 'package:codeveloper_to_do/View/Pages/PageTwo/PageTwo.dart';
-import 'package:codeveloper_to_do/data/Tasks/SpecificTasks/TaskWithDataToDo.dart';
-import 'package:codeveloper_to_do/data/Tasks/Task.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 
@@ -21,13 +19,14 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: UsedColors.White,
       body: NavBar(
+        BackgroundImage: Image.asset( "images/Background.jpg",fit: BoxFit.fill,),
+        pageBackgroundColor: UsedColors.lightGray,
         iconFramePadding: 10,
         iconFrameHeight: 60,
         iconFrameWidth: 60,
-        sectedBackgeoundIconColor: UsedColors.White,
-        barColor: UsedColors.lightGray,
+        selectedBackgeoundIconColor: const Color.fromARGB(230, 255, 255, 255),
+        barColor:UsedColors.lightBlue,
         pages: [
     PageOne(),
     PageTwo(),

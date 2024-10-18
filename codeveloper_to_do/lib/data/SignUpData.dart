@@ -16,7 +16,6 @@ class SignUpData {
       sharedPreferences
           .setStringList("UserData", [name!, Email!, phone!, password!]);
       sharedPreferences.setBool("LoggedIn", true);
-      print(sharedPreferences.getStringList("UserData"));
       print("==================signed up successfully");
       return true;
     }

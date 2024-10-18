@@ -56,7 +56,7 @@ class Loginview extends StatelessWidget {
                   child: ListView(
                     children: [
                       PMaker(
-                        top: 50,
+                        vertical: 50,
                       ),
                       TFFMaker(
                         onSaved: (value) {
@@ -88,7 +88,7 @@ class Loginview extends StatelessWidget {
                         focusedBorderColor: UsedColors.Blue,
                       ),
                       PMaker(
-                        top: 20,
+                        vertical: 50,
                       ),
                       TFFMaker(
                         onSaved: (value) {
@@ -117,7 +117,7 @@ class Loginview extends StatelessWidget {
                         focusedBorderColor: UsedColors.Blue,
                       ),
                       PMaker(
-                        top: 50,
+                        vertical: 50,
                       ),
                       MyButton(
                         textFontFamily: "Courgette",
@@ -131,14 +131,13 @@ class Loginview extends StatelessWidget {
                             LogInKey.currentState!.save();
                             if(await LogInData.storeLogInInfo()){
                               UserData =(await SignUpData.GetUserData())!;
-                              print("UserData=====================$UserData");
                             Get.toNamed("Home");
                             }
                           }
                         },
                       ),
                       PMaker(
-                        top: 30,
+                        vertical: 50,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -150,8 +149,8 @@ class Loginview extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                               color: const Color.fromARGB(255, 165, 165, 165)),
                           PMaker(
-                            left: 10,
-                          ),
+                        horizontal: 50,
+                      ),
                           TextButton(
                               onPressed: () {
                                 Get.offNamed("SignUp");
@@ -165,7 +164,7 @@ class Loginview extends StatelessWidget {
                         ],
                       ),
                       PMaker(
-                        top: 30,
+                        vertical: 50,
                       ),
                     ],
                   ),

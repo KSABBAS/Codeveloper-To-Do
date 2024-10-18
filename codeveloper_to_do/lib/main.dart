@@ -7,14 +7,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import 'data/Tasks/Task.dart';
+
 late bool loggedIn;
 List<String>? UserData;
+List<List>? TodaysList;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   loggedIn = await LogInData.LoggedInCheck();
   if (loggedIn) {
     UserData = (await SignUpData.GetUserData())!;
-    print("UserData=====================$UserData");
+    TodaysList = Task.MakeTodaysList(UserData![1]);
   }
   runApp(GetMaterialApp(getPages: [
     GetPage(name: "/Home", page: () => HomePage()),

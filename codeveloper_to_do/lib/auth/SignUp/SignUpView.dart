@@ -53,7 +53,7 @@ class Signupview extends StatelessWidget {
                   child: ListView(
                     children: [
                       PMaker(
-                        top: 50,
+                        vertical: 50,
                       ),
                       TFFMaker(
                         onSaved: (value) {
@@ -82,7 +82,7 @@ class Signupview extends StatelessWidget {
                         focusedBorderColor: UsedColors.Blue,
                       ),
                       PMaker(
-                        top: 20,
+                        vertical: 50,
                       ),
                       TFFMaker(
                         onSaved: (value) {
@@ -114,7 +114,7 @@ class Signupview extends StatelessWidget {
                         focusedBorderColor: UsedColors.Blue,
                       ),
                       PMaker(
-                        top: 20,
+                        vertical: 50,
                       ),
                       TFFMaker(
                         onSaved: (value) {
@@ -143,7 +143,7 @@ class Signupview extends StatelessWidget {
                         focusedBorderColor: UsedColors.Blue,
                       ),
                       PMaker(
-                        top: 20,
+                        vertical: 50,
                       ),
                       TFFMaker(
                         onSaved: (value) {
@@ -163,7 +163,7 @@ class Signupview extends StatelessWidget {
                         focusedBorderColor: UsedColors.Blue,
                       ),
                       PMaker(
-                        top: 50,
+                        vertical: 50,
                       ),
                       MyButton(
                         textFontFamily: "Courgette",
@@ -177,14 +177,13 @@ class Signupview extends StatelessWidget {
                             SignUpKey.currentState!.save();
                             if(await SignUpData.storeSignUpInfo()){
                               UserData =(await SignUpData.GetUserData())!;
-                              print("UserData=====================$UserData");
                             Get.toNamed("Home");
                             }
                           }
                         },
                       ),
                       PMaker(
-                        top: 30,
+                        vertical: 50,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -196,8 +195,8 @@ class Signupview extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                               color: const Color.fromARGB(255, 165, 165, 165)),
                           PMaker(
-                            left: 10,
-                          ),
+                        horizontal: 50,
+                      ),
                           TextButton(
                               onPressed: () {
                                 Get.offNamed("LogIn");
@@ -211,7 +210,7 @@ class Signupview extends StatelessWidget {
                         ],
                       ),
                       PMaker(
-                        top: 30,
+                        vertical: 50,
                       ),
                     ],
                   ),

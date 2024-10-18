@@ -32,6 +32,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
+  focused_menu: ^1.0.5
   get: ^4.6.6
   shared_preferences: ^2.3.2
 
