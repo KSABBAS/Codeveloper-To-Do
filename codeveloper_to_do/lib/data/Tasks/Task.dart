@@ -8,7 +8,7 @@ class Task {
         "you have to pray dohr", //body,
         false, //task is done(true) if is not done (false),
         true, //is it today,
-        5,//importance of the task
+        5, //importance of the task
       ],
       [
         "6:14", //Task Date
@@ -16,7 +16,7 @@ class Task {
         "you have to pray asr", //body,
         false, //task is done(true) if is not done (false),
         false, //is it today,
-        3,//importance of the task
+        3, //importance of the task
       ],
     ],
     "other": [
@@ -27,7 +27,7 @@ class Task {
         "you have to pray dohr", //body,
         false, //task is done(true) if is not done (false),
         true, //is it today,
-        4,//importance of the task
+        4, //importance of the task
       ],
       [
         "6:14", //Task Date
@@ -35,7 +35,102 @@ class Task {
         "you have to pray asr", //body,
         false, //task is done(true) if is not done (false),
         true, //is it today,
-        1,//importance of the task
+        1, //importance of the task
+      ],
+    ],
+    "Sports": [
+      //every file (key) container some tasks of the same category
+      [
+        null, //Task Date
+        "dohr", //title,
+        "you have to pray dohr", //body,
+        false, //task is done(true) if is not done (false),
+        true, //is it today,
+        4, //importance of the task
+      ],
+      [
+        "6:14", //Task Date
+        "asr", //title,
+        "you have to pray asr", //body,
+        false, //task is done(true) if is not done (false),
+        true, //is it today,
+        1, //importance of the task
+      ],
+    ],
+    "Sports now yala": [
+      //every file (key) container some tasks of the same category
+      [
+        null, //Task Date
+        "dohr", //title,
+        "you have to pray dohr", //body,
+        false, //task is done(true) if is not done (false),
+        true, //is it today,
+        4, //importance of the task
+      ],
+      [
+        "6:14", //Task Date
+        "asr", //title,
+        "you have to pray asr", //body,
+        false, //task is done(true) if is not done (false),
+        true, //is it today,
+        1, //importance of the task
+      ],
+    ],
+    "Sports2": [
+      //every file (key) container some tasks of the same category
+      [
+        null, //Task Date
+        "dohr", //title,
+        "you have to pray dohr", //body,
+        false, //task is done(true) if is not done (false),
+        true, //is it today,
+        4, //importance of the task
+      ],
+      [
+        "6:14", //Task Date
+        "asr", //title,
+        "you have to pray asr", //body,
+        false, //task is done(true) if is not done (false),
+        true, //is it today,
+        1, //importance of the task
+      ],
+    ],
+    "Sports3": [
+      //every file (key) container some tasks of the same category
+      [
+        null, //Task Date
+        "dohr", //title,
+        "you have to pray dohr", //body,
+        false, //task is done(true) if is not done (false),
+        true, //is it today,
+        4, //importance of the task
+      ],
+      [
+        "6:14", //Task Date
+        "asr", //title,
+        "you have to pray asr", //body,
+        false, //task is done(true) if is not done (false),
+        true, //is it today,
+        1, //importance of the task
+      ],
+    ],
+    "Sports4": [
+      //every file (key) container some tasks of the same category
+      [
+        null, //Task Date
+        "dohr", //title,
+        "you have to pray dohr", //body,
+        false, //task is done(true) if is not done (false),
+        true, //is it today,
+        4, //importance of the task
+      ],
+      [
+        "6:14", //Task Date
+        "asr", //title,
+        "you have to pray asr", //body,
+        false, //task is done(true) if is not done (false),
+        true, //is it today,
+        1, //importance of the task
       ],
     ],
   }; //a simulation for local datebase tasks,
@@ -51,7 +146,7 @@ class Task {
               "you have to train", //body
               false, //task is done(true) if is not done (false)
               false, //is it today
-              2,//importance of the task
+              2, //importance of the task
             ], //Task1
             [
               "no date", //the type of the task
@@ -59,7 +154,7 @@ class Task {
               "you have to train", //body
               false, //task is done(true) if is not done (false)
               true, //is it today
-              2,//importance of the task
+              2, //importance of the task
             ], //Task 2
             [
               "no date", //the type of the task
@@ -67,7 +162,7 @@ class Task {
               "you have to train", //body
               false, //task is done(true) if is not done (false)
               true, //is it today
-              2,//importance of the task
+              2, //importance of the task
             ], //Task 3
           ], //Member Tasks
         ],
@@ -80,7 +175,7 @@ class Task {
               "you have to train", //body
               false, //task is done(true) if is not done (false)
               true, //is it today
-              2,//importance of the task
+              2, //importance of the task
             ], //Task1
             [
               "no date", //the type of the task
@@ -88,7 +183,7 @@ class Task {
               "you have to train", //body
               false, //task is done(true) if is not done (false)
               true, //is it today
-              2,//importance of the task
+              2, //importance of the task
             ], //Task 2
             [
               "no date", //the type of the task
@@ -96,7 +191,7 @@ class Task {
               "you have to train", //body
               false, //task is done(true) if is not done (false)
               true, //is it today
-              2,//importance of the task
+              2, //importance of the task
             ], //Task 3
           ], //Member Tasks
         ],
@@ -113,7 +208,7 @@ class Task {
               "you have to train", //body
               false, //task is done(true) if is not done (false)
               true, //is it today
-              2,//importance of the task
+              2, //importance of the task
             ], //Task1
             [
               "no date", //the type of the task
@@ -121,7 +216,7 @@ class Task {
               "you have to train", //body
               false, //task is done(true) if is not done (false)
               true, //is it today
-              2,//importance of the task
+              2, //importance of the task
             ], //Task 2
             [
               "no date", //the type of the task
@@ -129,7 +224,7 @@ class Task {
               "you have to train", //body
               false, //task is done(true) if is not done (false)
               true, //is it today
-              2,//importance of the task
+              2, //importance of the task
             ], //Task 3
           ], //Member Tasks
         ],
@@ -142,7 +237,7 @@ class Task {
               "you have to train", //body
               false, //task is done(true) if is not done (false)
               true, //is it today
-              2,//importance of the task
+              2, //importance of the task
             ], //Task1
             [
               "no hhhhhhhhhhhhhhdate", //the type of the task
@@ -150,7 +245,7 @@ class Task {
               "you have to train", //body
               false, //task is done(true) if is not done (false)
               true, //is it today
-              2,//importance of the task
+              2, //importance of the task
             ], //Task 2
             [
               "no date", //the type of the task
@@ -158,7 +253,7 @@ class Task {
               "you have to train", //body
               false, //task is done(true) if is not done (false)
               true, //is it today
-              2,//importance of the task
+              2, //importance of the task
             ], //Task 3
           ], //Member Tasks
         ],
@@ -331,7 +426,16 @@ class Task {
     }
     return number;
   }
-}
-_moveToLast_Lacal_(String file ,int Index){
 
+  static int LocalTasksDoneNumber(String file) {
+    int Count = 0;
+    for (int i = 0; i < LocalData[file]!.length; i++) {
+      if (LocalData[file]![i][3]) {
+        Count++;
+      }
+    }
+    return Count;
+  }
+
+  _moveToLast_Lacal_(String file, int Index) {}
 }

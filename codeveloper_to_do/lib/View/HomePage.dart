@@ -20,13 +20,23 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: NavBar(
-        BackgroundImage: Image.asset( "images/Background.jpg",fit: BoxFit.fill,),
-        pageBackgroundColor: UsedColors.lightGray,
+        BackgroundImage: Image.asset( "images/Home.jpg",fit: BoxFit.fill,),
+        // pageBackgroundColor: UsedColors.White,
         iconFramePadding: 10,
         iconFrameHeight: 60,
+        BarShadow: [
+          BoxShadow(offset: Offset(2, 2),
+          blurRadius: 10,
+          color: const Color.fromARGB(70, 0, 0, 0)
+          ),
+          BoxShadow(offset: Offset(2, 2),
+          blurRadius: 10,
+          color: const Color.fromARGB(70, 0, 0, 0)
+          ),
+        ],
         iconFrameWidth: 60,
         selectedBackgeoundIconColor: const Color.fromARGB(230, 255, 255, 255),
-        barColor:UsedColors.lightBlue,
+        barColor:UsedColors.Blue,
         pages: [
     PageOne(),
     PageTwo(),

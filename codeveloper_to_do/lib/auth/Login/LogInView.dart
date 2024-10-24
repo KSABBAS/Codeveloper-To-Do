@@ -1,4 +1,5 @@
 import 'package:codeveloper_to_do/Constants/ColorsUsded.dart';
+import 'package:codeveloper_to_do/Constants/Fonts.dart';
 import 'package:codeveloper_to_do/MyTools.dart';
 import 'package:codeveloper_to_do/data/SignUpData.dart';
 import 'package:codeveloper_to_do/data/loginData.dart';
@@ -33,7 +34,7 @@ class Loginview extends StatelessWidget {
                   child: CMaker(
                       alignment: Alignment.center,
                       child: TMaker(
-                          fontFamily: "Courgette",
+                          fontFamily: UsedFonts.UsedFont,
                           text: "Log In",
                           fontSize: 70,
                           fontWeight: FontWeight.w600,
@@ -56,14 +57,14 @@ class Loginview extends StatelessWidget {
                   child: ListView(
                     children: [
                       PMaker(
-                        vertical: 50,
+                        vertical: 30,
                       ),
                       TFFMaker(
                         onSaved: (value) {
                           LogInData.Email = value;
                         },
                         label: TMaker(
-                            fontFamily: "Courgette",
+                            fontFamily: UsedFonts.UsedFont,
                             text: "Email",
                             fontSize: 20,
                             fontWeight: FontWeight.w500,
@@ -88,14 +89,14 @@ class Loginview extends StatelessWidget {
                         focusedBorderColor: UsedColors.Blue,
                       ),
                       PMaker(
-                        vertical: 50,
+                        vertical: 30,
                       ),
                       TFFMaker(
                         onSaved: (value) {
                           LogInData.password = value;
                         },
                         label: TMaker(
-                            fontFamily: "Courgette",
+                            fontFamily: UsedFonts.UsedFont,
                             text: "Password",
                             fontSize: 20,
                             fontWeight: FontWeight.w500,
@@ -117,10 +118,10 @@ class Loginview extends StatelessWidget {
                         focusedBorderColor: UsedColors.Blue,
                       ),
                       PMaker(
-                        vertical: 50,
+                        vertical: 80,
                       ),
                       MyButton(
-                        textFontFamily: "Courgette",
+                        textFontFamily: UsedFonts.UsedFont,
                         buttonHeight: 60,
                         buttonWidth: 140,
                         textFont: 25,
@@ -137,26 +138,26 @@ class Loginview extends StatelessWidget {
                         },
                       ),
                       PMaker(
-                        vertical: 50,
+                        vertical: 20,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           TMaker(
-                              fontFamily: "Courgette",
-                              text: "First time ?",
+                              fontFamily: UsedFonts.UsedFont,
+                              text: "Create an account",
                               fontSize: 17,
                               fontWeight: FontWeight.w500,
                               color: const Color.fromARGB(255, 165, 165, 165)),
                           PMaker(
-                        horizontal: 50,
+                        horizontal: 20,
                       ),
                           TextButton(
                               onPressed: () {
                                 Get.offNamed("SignUp");
                               },
                               child: TMaker(
-                                  fontFamily: "Courgette",
+                                  fontFamily: UsedFonts.UsedFont,
                                   text: "Sign Up",
                                   fontSize: 20,
                                   fontWeight: FontWeight.w500,
@@ -164,7 +165,7 @@ class Loginview extends StatelessWidget {
                         ],
                       ),
                       PMaker(
-                        vertical: 50,
+                        vertical: 10,
                       ),
                     ],
                   ),
@@ -187,7 +188,7 @@ class Loginview extends StatelessWidget {
                   child: Column(
                     children: [
                       TMaker(
-                          fontFamily: "Courgette",
+                          fontFamily: UsedFonts.UsedFont,
                           text: "Our Social Media",
                           fontSize: 20,
                           fontWeight: FontWeight.w500,

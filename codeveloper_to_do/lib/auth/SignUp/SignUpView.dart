@@ -1,4 +1,5 @@
 import 'package:codeveloper_to_do/Constants/ColorsUsded.dart';
+import 'package:codeveloper_to_do/Constants/Fonts.dart';
 import 'package:codeveloper_to_do/MyTools.dart';
 import 'package:codeveloper_to_do/data/SignUpData.dart';
 import 'package:codeveloper_to_do/main.dart';
@@ -30,7 +31,7 @@ class Signupview extends StatelessWidget {
                   child: CMaker(
                       alignment: Alignment.center,
                       child: TMaker(
-                          fontFamily: "Courgette",
+                          fontFamily: UsedFonts.UsedFont,
                           text: "Sign Up",
                           fontSize: 70,
                           fontWeight: FontWeight.w600,
@@ -60,7 +61,7 @@ class Signupview extends StatelessWidget {
                           SignUpData.name = value;
                         },
                         label: TMaker(
-                            fontFamily: "Courgette",
+                            fontFamily: UsedFonts.UsedFont,
                             text: "Name",
                             fontSize: 20,
                             fontWeight: FontWeight.w500,
@@ -89,7 +90,7 @@ class Signupview extends StatelessWidget {
                           SignUpData.Email = value;
                         },
                         label: TMaker(
-                            fontFamily: "Courgette",
+                            fontFamily: UsedFonts.UsedFont,
                             text: "Email",
                             fontSize: 20,
                             fontWeight: FontWeight.w500,
@@ -121,7 +122,7 @@ class Signupview extends StatelessWidget {
                           SignUpData.password = value;
                         },
                         label: TMaker(
-                            fontFamily: "Courgette",
+                            fontFamily: UsedFonts.UsedFont,
                             text: "Password",
                             fontSize: 20,
                             fontWeight: FontWeight.w500,
@@ -150,7 +151,7 @@ class Signupview extends StatelessWidget {
                           SignUpData.phone = value;
                         },
                         label: TMaker(
-                            fontFamily: "Courgette",
+                            fontFamily: UsedFonts.UsedFont,
                             text: "Number",
                             fontSize: 20,
                             fontWeight: FontWeight.w500,
@@ -166,7 +167,7 @@ class Signupview extends StatelessWidget {
                         vertical: 50,
                       ),
                       MyButton(
-                        textFontFamily: "Courgette",
+                        textFontFamily: UsedFonts.UsedFont,
                         buttonHeight: 60,
                         buttonWidth: 140,
                         textFont: 25,
@@ -189,7 +190,7 @@ class Signupview extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           TMaker(
-                              fontFamily: "Courgette",
+                              fontFamily: UsedFonts.UsedFont,
                               text: "Have an account ?",
                               fontSize: 17,
                               fontWeight: FontWeight.w500,
@@ -202,7 +203,7 @@ class Signupview extends StatelessWidget {
                                 Get.offNamed("LogIn");
                               },
                               child: TMaker(
-                                  fontFamily: "Courgette",
+                                  fontFamily: UsedFonts.UsedFont,
                                   text: "Log In",
                                   fontSize: 20,
                                   fontWeight: FontWeight.w500,
@@ -233,7 +234,7 @@ class Signupview extends StatelessWidget {
                   child: Column(
                     children: [
                       TMaker(
-                          fontFamily: "Courgette",
+                          fontFamily: UsedFonts.UsedFont,
                           text: "Our Social Media",
                           fontSize: 20,
                           fontWeight: FontWeight.w500,

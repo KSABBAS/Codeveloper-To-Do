@@ -16,6 +16,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   loggedIn = await LogInData.LoggedInCheck();
   if (loggedIn) {
+    // get data from server
     UserData = (await SignUpData.GetUserData())!;
     TodaysList = Task.MakeTodaysList(UserData![1]);
   }
@@ -38,8 +39,10 @@ class _ToDoAppState extends State<ToDoApp> {
   Widget build(BuildContext context) {
     print("=========== Logged In : $loggedIn");
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-    return (loggedIn
-        // true
+    return (
+      // loggedIn
+        true
+        // false
         )
         ? HomePage()
         : Loginview();
