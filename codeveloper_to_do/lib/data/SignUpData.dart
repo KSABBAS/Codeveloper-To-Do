@@ -6,6 +6,7 @@ class SignUpData {
   static String? Email = null;
   static String? phone = null;
   static String? password = null;
+  static String? image = null;
   static Future<bool> storeSignUpInfo() async {
     if (await _CheckUserExistance()) {
       print("user already exists");
@@ -14,7 +15,7 @@ class SignUpData {
       SharedPreferences sharedPreferences =
           await SharedPreferences.getInstance();
       sharedPreferences
-          .setStringList("UserData", [name!, Email!, phone!, password!]);
+          .setStringList("UserData", [name!, Email!, phone!, password!,image??"https://media.istockphoto.com/id/1332100919/vector/man-icon-black-icon-person-symbol.jpg?s=612x612&w=0&k=20&c=AVVJkvxQQCuBhawHrUhDRTCeNQ3Jgt0K1tXjJsFy1eg="]);
       sharedPreferences.setBool("LoggedIn", true);
       print("==================signed up successfully");
       return true;

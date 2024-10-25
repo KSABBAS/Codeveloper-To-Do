@@ -54,7 +54,7 @@ class Signupview extends StatelessWidget {
                   child: ListView(
                     children: [
                       PMaker(
-                        vertical: 50,
+                        vertical: 40,
                       ),
                       TFFMaker(
                         onSaved: (value) {
@@ -83,7 +83,7 @@ class Signupview extends StatelessWidget {
                         focusedBorderColor: UsedColors.Blue,
                       ),
                       PMaker(
-                        vertical: 50,
+                        vertical: 20,
                       ),
                       TFFMaker(
                         onSaved: (value) {
@@ -115,7 +115,7 @@ class Signupview extends StatelessWidget {
                         focusedBorderColor: UsedColors.Blue,
                       ),
                       PMaker(
-                        vertical: 50,
+                        vertical: 20,
                       ),
                       TFFMaker(
                         onSaved: (value) {
@@ -144,7 +144,7 @@ class Signupview extends StatelessWidget {
                         focusedBorderColor: UsedColors.Blue,
                       ),
                       PMaker(
-                        vertical: 50,
+                        vertical: 20,
                       ),
                       TFFMaker(
                         onSaved: (value) {
@@ -184,7 +184,7 @@ class Signupview extends StatelessWidget {
                         },
                       ),
                       PMaker(
-                        vertical: 50,
+                        vertical: 20,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -211,7 +211,7 @@ class Signupview extends StatelessWidget {
                         ],
                       ),
                       PMaker(
-                        vertical: 50,
+                        vertical: 20,
                       ),
                     ],
                   ),

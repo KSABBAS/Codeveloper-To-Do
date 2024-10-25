@@ -13,6 +13,7 @@ late bool loggedIn;
 List<String>? UserData;
 List<List>? TodaysList;
 void main() async {
+  print(UserData);
   WidgetsFlutterBinding.ensureInitialized();
   loggedIn = await LogInData.LoggedInCheck();
   if (loggedIn) {
@@ -39,9 +40,8 @@ class _ToDoAppState extends State<ToDoApp> {
   Widget build(BuildContext context) {
     print("=========== Logged In : $loggedIn");
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-    return (
-      // loggedIn
-        true
+    return (loggedIn
+        // true
         // false
         )
         ? HomePage()
