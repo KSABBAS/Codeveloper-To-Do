@@ -1,5 +1,5 @@
 class Task {
-  static Map<String, List<List>> LocalData = {
+  static Map<String, List> LocalData = {
     "prayer": [
       //every file (key) container some tasks of the same category
       [
@@ -18,8 +18,9 @@ class Task {
         false, //is it today,
         3, //importance of the task
       ],
+      "images/4494497.png", //file image
     ],
-    "other": [
+    "prayer 1": [
       //every file (key) container some tasks of the same category
       [
         null, //Task Date
@@ -27,18 +28,19 @@ class Task {
         "you have to pray dohr", //body,
         false, //task is done(true) if is not done (false),
         true, //is it today,
-        4, //importance of the task
+        5, //importance of the task
       ],
       [
         "6:14", //Task Date
         "asr", //title,
         "you have to pray asr", //body,
         false, //task is done(true) if is not done (false),
-        true, //is it today,
-        1, //importance of the task
+        false, //is it today,
+        3, //importance of the task
       ],
+      "images/5968764.png", //file image
     ],
-    "Sports": [
+    "prayer 3": [
       //every file (key) container some tasks of the same category
       [
         null, //Task Date
@@ -46,18 +48,19 @@ class Task {
         "you have to pray dohr", //body,
         false, //task is done(true) if is not done (false),
         true, //is it today,
-        4, //importance of the task
+        5, //importance of the task
       ],
       [
         "6:14", //Task Date
         "asr", //title,
         "you have to pray asr", //body,
         false, //task is done(true) if is not done (false),
-        true, //is it today,
-        1, //importance of the task
+        false, //is it today,
+        3, //importance of the task
       ],
+      "images/5968764.png", //file image
     ],
-    "Sports now yala": [
+    "prayer 7": [
       //every file (key) container some tasks of the same category
       [
         null, //Task Date
@@ -65,18 +68,19 @@ class Task {
         "you have to pray dohr", //body,
         false, //task is done(true) if is not done (false),
         true, //is it today,
-        4, //importance of the task
+        5, //importance of the task
       ],
       [
         "6:14", //Task Date
         "asr", //title,
         "you have to pray asr", //body,
         false, //task is done(true) if is not done (false),
-        true, //is it today,
-        1, //importance of the task
+        false, //is it today,
+        3, //importance of the task
       ],
+      "images/5968764.png", //file image
     ],
-    "Sports2": [
+    "prayer 4": [
       //every file (key) container some tasks of the same category
       [
         null, //Task Date
@@ -84,18 +88,19 @@ class Task {
         "you have to pray dohr", //body,
         false, //task is done(true) if is not done (false),
         true, //is it today,
-        4, //importance of the task
+        5, //importance of the task
       ],
       [
         "6:14", //Task Date
         "asr", //title,
         "you have to pray asr", //body,
         false, //task is done(true) if is not done (false),
-        true, //is it today,
-        1, //importance of the task
+        false, //is it today,
+        3, //importance of the task
       ],
+      "images/5968764.png", //file image
     ],
-    "Sports3": [
+    "prayer 5": [
       //every file (key) container some tasks of the same category
       [
         null, //Task Date
@@ -103,18 +108,19 @@ class Task {
         "you have to pray dohr", //body,
         false, //task is done(true) if is not done (false),
         true, //is it today,
-        4, //importance of the task
+        5, //importance of the task
       ],
       [
         "6:14", //Task Date
         "asr", //title,
         "you have to pray asr", //body,
         false, //task is done(true) if is not done (false),
-        true, //is it today,
-        1, //importance of the task
+        false, //is it today,
+        3, //importance of the task
       ],
+      "images/5968764.png", //file image
     ],
-    "Sports4": [
+    "prayer 6": [
       //every file (key) container some tasks of the same category
       [
         null, //Task Date
@@ -122,19 +128,21 @@ class Task {
         "you have to pray dohr", //body,
         false, //task is done(true) if is not done (false),
         true, //is it today,
-        4, //importance of the task
+        5, //importance of the task
       ],
       [
         "6:14", //Task Date
         "asr", //title,
         "you have to pray asr", //body,
         false, //task is done(true) if is not done (false),
-        true, //is it today,
-        1, //importance of the task
+        false, //is it today,
+        3, //importance of the task
       ],
+      "images/5968764.png", //file image
     ],
+    
   }; //a simulation for local datebase tasks,
-  static Map<String, List<Map<String, List>>> TeamsData = {
+  static Map<String, List> TeamsData = {
     "Project 1": [
       {
         "kareemsaid234@gmail.com": [
@@ -195,73 +203,14 @@ class Task {
             ], //Task 3
           ], //Member Tasks
         ],
-      }
+      },
+      "images/4494497.png" //file image
     ],
-    "Project 2": [
-      {
-        "kareemsaid234@gmail.com": [
-          "Ui manager", //Member role in the progect,
-          [
-            [
-              "no date", //the type of the task
-              "training", //title,
-              "you have to train", //body
-              false, //task is done(true) if is not done (false)
-              true, //is it today
-              2, //importance of the task
-            ], //Task1
-            [
-              "no date", //the type of the task
-              "training", //title,
-              "you have to train", //body
-              false, //task is done(true) if is not done (false)
-              true, //is it today
-              2, //importance of the task
-            ], //Task 2
-            [
-              "no date", //the type of the task
-              "training", //title,
-              "you have to train", //body
-              false, //task is done(true) if is not done (false)
-              true, //is it today
-              2, //importance of the task
-            ], //Task 3
-          ], //Member Tasks
-        ],
-        "hosny@gmail.com": [
-          "Database manager", //Member role in the progect,
-          [
-            [
-              "no date", //the type of the task
-              "training", //title,
-              "you have to train", //body
-              false, //task is done(true) if is not done (false)
-              true, //is it today
-              2, //importance of the task
-            ], //Task1
-            [
-              "no hhhhhhhhhhhhhhdate", //the type of the task
-              "training", //title,
-              "you have to train", //body
-              false, //task is done(true) if is not done (false)
-              true, //is it today
-              2, //importance of the task
-            ], //Task 2
-            [
-              "no date", //the type of the task
-              "training", //title,
-              "you have to train", //body
-              false, //task is done(true) if is not done (false)
-              true, //is it today
-              2, //importance of the task
-            ], //Task 3
-          ], //Member Tasks
-        ],
-      }
-    ]
   }; //a simulation for local datebase tasks,
   static void AddLocalTask(String file, String title, String body, bool state) {
-    LocalData[file]!.add([null, title, body, state]);
+    LocalData[file]!
+        .insert(LocalData[file]!.length - 1, [null, title, body, state]);
+    print(LocalData);
   }
 
   static void AddLocalTaskOnTop(
@@ -391,26 +340,25 @@ class Task {
     List<List> list = [];
     for (var index0 = 0; index0 < LocalData.length; index0++) {
       for (var i = 0;
-          i < LocalData[LocalData.keys.elementAt(index0)]!.length;
+          i < LocalData[LocalData.keys.elementAt(index0)]!.length-1;
           i++) {
         if (LocalData[LocalData.keys.elementAt(index0)]![i][4])
           list.add([LocalData.keys.elementAt(index0), i]);
       }
     }
-    for (var index0 = 0; index0 < TeamsData.length; index0++) {
-      String projectName = TeamsData.keys.elementAt(index0);
-      for (var memberData in TeamsData[projectName]!) {
-        if (memberData.containsKey(Email)) {
-          String role = memberData[Email]![0]; // Member's role
-          List tasks = memberData[Email]![1]; // Member's tasks list
-          for (var t = 0; t < tasks.length; t++) {
-            if (tasks[t][4]) {
-              list.add([projectName, Email, t]);
-            }
-          }
-        }
+    TeamsData.forEach((projectName, projectData) {
+    Map<String, dynamic> members = projectData[0]; // Get the member data map
+    
+    members.forEach((memberEmail, memberInfo) {
+      String role = memberInfo[0];
+      List<dynamic> tasks = memberInfo[1];
+
+      for (int i = 0; i < tasks.length; i++) {
+        // Create a formatted string with project name, member email, role, and task index
+        list.add([projectName, memberEmail,role, i]);
       }
-    }
+    });
+  });
     return list;
   }
 

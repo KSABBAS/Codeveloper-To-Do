@@ -28,9 +28,7 @@ class _PageTwoState extends State<PageTwo> {
           fontFamily: UsedFonts.UsedFont,
         ),
         PMaker(vertical: 40),
-        CMaker(
-          height: (Task.LocalData.length * 138),
-          child: WGridBuilder(
+        WGridBuilder(
             Scroll: false,
             childBoxShadow: [
               BoxShadow(
@@ -47,7 +45,7 @@ class _PageTwoState extends State<PageTwo> {
                   PMaker(
                     vertical: 20,
                   ),
-                  Image.asset("images/15707749.png"),
+                  Image.asset(Task.LocalData[Task.LocalData.keys.elementAt(Index)]![Task.LocalData[Task.LocalData.keys.elementAt(Index)]!.length-1]),
                   PMaker(
                     vertical: 20,
                   ),
@@ -74,7 +72,6 @@ class _PageTwoState extends State<PageTwo> {
                   file: Task.LocalData.keys.elementAt(SelectedIndex)));
             },
           ),
-        ),
         CMaker(
           height: 250,
           width: double.infinity,

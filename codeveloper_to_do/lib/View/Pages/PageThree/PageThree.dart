@@ -2,7 +2,6 @@ import 'package:codeveloper_to_do/Constants/ColorsUsded.dart';
 import 'package:codeveloper_to_do/Constants/Fonts.dart';
 import 'package:codeveloper_to_do/MyTools.dart';
 import 'package:codeveloper_to_do/View/Extra/PageThreeFile/ProjectFile.dart';
-import 'package:codeveloper_to_do/View/Extra/PageTwoFile/FilePage.dart';
 import 'package:codeveloper_to_do/data/Tasks/Task.dart';
 import 'package:codeveloper_to_do/main.dart';
 import 'package:flutter/material.dart';
@@ -29,9 +28,7 @@ class _PageThreeState extends State<PageThree> {
           fontFamily: UsedFonts.UsedFont,
         ),
         PMaker(vertical: 40),
-        CMaker(
-          height: (Task.TeamsData.length * 138),
-          child: WGridBuilder(
+          WGridBuilder(
             Scroll: false,
             childBoxShadow:const [
               BoxShadow(
@@ -76,7 +73,6 @@ class _PageThreeState extends State<PageThree> {
                   member:UserData![1]));
             },
           ),
-        ),
         CMaker(
           height: 250,
           width: double.infinity,

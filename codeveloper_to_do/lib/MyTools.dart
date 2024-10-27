@@ -888,7 +888,7 @@ class WGridBuilder extends StatefulWidget {
       required this.itemCount,
       required this.crossAxisCount,
       this.onSelected,
-      this.childHeight,
+      required this.childHeight,
       this.childWidth,
       this.rowSpaces,
       this.columnSpaces,
@@ -900,8 +900,7 @@ class WGridBuilder extends StatefulWidget {
       this.childColor,
       this.childGradient,
       this.childPadding,
-      this.Scroll
-      });
+      this.Scroll});
   int crossAxisCount;
   Widget Function(int Index) builder;
   int itemCount;
@@ -916,7 +915,7 @@ class WGridBuilder extends StatefulWidget {
   double? childCircularRadius;
   double? rowSpaces;
   double? columnSpaces;
-  double? childHeight;
+  double childHeight;
   bool? Scroll;
   Function(int SelectedIndex)? onSelected;
   @override
@@ -934,70 +933,85 @@ class _WGridBuilderState extends State<WGridBuilder> {
       }
       return list;
     }();
-    return ListView.builder(
-      physics:(widget.Scroll==false)? NeverScrollableScrollPhysics():null,
-      shrinkWrap:widget.Scroll??true,
-      itemCount: (widget.itemCount / widget.crossAxisCount).round(),
-      itemBuilder: (context, RowIndex) {
-        return CMaker(
-          margin: EdgeInsets.only(
-              top: (RowIndex == 0)
-                  ? widget.rowSpaces ?? 0
-                  : (((widget.rowSpaces) ?? 0) / 2),
-              bottom: ((RowIndex + 1) ==
-                      (widget.itemCount / widget.crossAxisCount).round())
-                  ? (widget.rowSpaces ?? 0)
-                  : (((widget.rowSpaces) ?? 0) / 2)),
-          height: widget.childHeight ?? 150,
-          width: widget.childWidth ?? 150.0 * widget.crossAxisCount,
-          child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: widget.crossAxisCount,
-              itemBuilder: (context, ColumnIndex) {
-                return ((widget.itemCount % widget.crossAxisCount) != 0 &&
-                        widget.itemCount ==
-                            ((widget.crossAxisCount * RowIndex + ColumnIndex)))
-                    ? Container(
-                        width: widget.childWidth ?? 150,
-                      )
-                    : CMaker(
-                        margin: EdgeInsets.only(
-                            left: (ColumnIndex == 0)
-                                ? widget.columnSpaces ?? 0
-                                : (((widget.columnSpaces) ?? 0) / 2),
-                            right: ((ColumnIndex + 1) == widget.crossAxisCount)
-                                ? (widget.columnSpaces ?? 0)
-                                : (((widget.columnSpaces) ?? 0) / 2)),
-                        child: InkWell(
-                          onTap: (widget.onSelected != null)
-                              ? () {
-                                  widget.onSelected!(
-                                      (widget.crossAxisCount * RowIndex +
-                                          ColumnIndex));
-                                }
-                              : null,
-                          child: CMaker(
-                              padding: widget.childPadding,
-                              boxShadow: widget.childBoxShadow,
-                              BackGroundimage: widget.childBackGroundimage,
-                              alignment: widget.childAlignment,
-                              border: widget.childBorder,
-                              gradient: widget.childGradient,
-                              width: widget.childWidth ?? 150,
-                              circularRadius: widget.childCircularRadius ?? 20,
-                              color: widget.childColor ??
-                                  Color.fromARGB(96, 216, 216, 216),
-                              child: (list != [])
-                                  ? list[(widget.crossAxisCount * RowIndex +
-                                      ColumnIndex)]
-                                  : Container(
-                                      width: widget.childWidth ?? 150,
-                                    )),
-                        ),
-                      );
-              }),
-        );
-      },
+    return Container(
+      height: (widget.itemCount.isEven)
+          ? ((widget.childHeight * widget.itemCount) / 2) +
+              ((widget.rowSpaces ?? 0 * widget.itemCount) +
+                  ((widget.rowSpaces ?? 0) * (widget.itemCount / 2.0) + 0.0))
+          : (((widget.childHeight * widget.itemCount) / 2) +
+                  widget.childHeight / 2) +
+              ((widget.rowSpaces ?? 0 * widget.itemCount) +
+                  ((widget.rowSpaces ?? 0) * (widget.itemCount / 2.0).round() +
+                      0.0)),
+      child: ListView.builder(
+        physics:
+            (widget.Scroll == false) ? NeverScrollableScrollPhysics() : null,
+        shrinkWrap: widget.Scroll ?? true,
+        itemCount: (widget.itemCount / widget.crossAxisCount).round(),
+        itemBuilder: (context, RowIndex) {
+          return CMaker(
+            margin: EdgeInsets.only(
+                top: (RowIndex == 0)
+                    ? widget.rowSpaces ?? 0
+                    : (((widget.rowSpaces) ?? 0) / 2),
+                bottom: ((RowIndex + 1) ==
+                        (widget.itemCount / widget.crossAxisCount).round())
+                    ? (widget.rowSpaces ?? 0)
+                    : (((widget.rowSpaces) ?? 0) / 2)),
+            height: widget.childHeight ?? 150,
+            width: widget.childWidth ?? 150.0 * widget.crossAxisCount,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: widget.crossAxisCount,
+                itemBuilder: (context, ColumnIndex) {
+                  return ((widget.itemCount % widget.crossAxisCount) != 0 &&
+                          widget.itemCount ==
+                              ((widget.crossAxisCount * RowIndex +
+                                  ColumnIndex)))
+                      ? Container(
+                          width: widget.childWidth ?? 150,
+                        )
+                      : CMaker(
+                          margin: EdgeInsets.only(
+                              left: (ColumnIndex == 0)
+                                  ? widget.columnSpaces ?? 0
+                                  : (((widget.columnSpaces) ?? 0) / 2),
+                              right:
+                                  ((ColumnIndex + 1) == widget.crossAxisCount)
+                                      ? (widget.columnSpaces ?? 0)
+                                      : (((widget.columnSpaces) ?? 0) / 2)),
+                          child: InkWell(
+                            onTap: (widget.onSelected != null)
+                                ? () {
+                                    widget.onSelected!(
+                                        (widget.crossAxisCount * RowIndex +
+                                            ColumnIndex));
+                                  }
+                                : null,
+                            child: CMaker(
+                                padding: widget.childPadding,
+                                boxShadow: widget.childBoxShadow,
+                                BackGroundimage: widget.childBackGroundimage,
+                                alignment: widget.childAlignment,
+                                border: widget.childBorder,
+                                gradient: widget.childGradient,
+                                width: widget.childWidth ?? 150,
+                                circularRadius:
+                                    widget.childCircularRadius ?? 20,
+                                color: widget.childColor ??
+                                    Color.fromARGB(96, 216, 216, 216),
+                                child: (list != [])
+                                    ? list[(widget.crossAxisCount * RowIndex +
+                                        ColumnIndex)]
+                                    : Container(
+                                        width: widget.childWidth ?? 150,
+                                      )),
+                          ),
+                        );
+                }),
+          );
+        },
+      ),
     );
   }
 }

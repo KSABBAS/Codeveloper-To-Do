@@ -122,7 +122,7 @@ class _PageOneState extends State<PageOne> {
                   },
                   program: TodaysList![index][0],
                   member: TodaysList![index][1],
-                  index: TodaysList![index][2]);
+                  index: TodaysList![index][3]);
             }
             // }(),
             // (index != TodaysList!.length - 1)
