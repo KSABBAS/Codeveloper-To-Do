@@ -1,10 +1,13 @@
 import 'package:codeveloper_to_do/Constants/ColorsUsded.dart';
 import 'package:codeveloper_to_do/Constants/Fonts.dart';
 import 'package:codeveloper_to_do/MyTools.dart';
+import 'package:codeveloper_to_do/View/Tasks/LocalTasks/NoDateTasks/EditNoDateTask.dart';
+import 'package:codeveloper_to_do/View/Tasks/LocalTasks/NoDateTasks/ViewNoDateTask.dart';
 import 'package:codeveloper_to_do/data/Tasks/Task.dart';
 import 'package:flutter/material.dart';
 import 'package:focused_menu/focused_menu.dart';
 import 'package:focused_menu/modals.dart';
+import 'package:get/get.dart';
 
 class NoDateTask extends StatefulWidget {
   NoDateTask(
@@ -25,7 +28,15 @@ class _NoDateTaskState extends State<NoDateTask> {
         animateMenuItems: true,
         menuItemExtent: 100,
         menuOffset: 20,
-        onPressed: () {},
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return ViewPersonalNoDateTask(
+                  file: widget.file, index: widget.index);
+            },
+          );
+        },
         menuItems: [
           FocusedMenuItem(
               title: CMaker(
@@ -49,7 +60,18 @@ class _NoDateTaskState extends State<NoDateTask> {
                 ),
               ),
               onPressed: () {
-                print("hi");
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return EditPersonalNoDateTask(
+                        refreshTask: () {
+                          setState(() {
+                          });
+                        },
+                        file: widget.file,
+                        index: widget.index,
+                      );
+                    });
               }),
           FocusedMenuItem(
               title: CMaker(
@@ -73,12 +95,65 @@ class _NoDateTaskState extends State<NoDateTask> {
                 ),
               ),
               onPressed: () {
-                Task.RemoveLocalTask(widget.file, widget.index);
-                widget.onCheck!();
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return Dialog(
+                      child: CMaker(
+                        circularRadius: 20,
+                        height: 200,
+                        width: double.infinity,
+                        color: UsedColors.White,
+                        child: Column(
+                          children: [
+                            Spacer(),
+                            TMaker(
+                              text: "Are you sure",
+                              fontSize: 40,
+                              fontWeight: FontWeight.w500,
+                              color: UsedColors.black,
+                              fontFamily: UsedFonts.UsedFont,
+                            ),
+                            PMaker(
+                              vertical: 30,
+                            ),
+                            CMaker(
+                              width: PageWidth(context) - 100,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  MyButton(
+                                    text: "Yes",
+                                    buttonColor: UsedColors.Blue,
+                                    onTap: () {
+                                      Get.back();
+                                      Task.RemoveLocalTask(
+                                          widget.file, widget.index);
+                                      widget.onCheck!();
+                                    },
+                                  ),
+                                  MyButton(
+                                    text: "No",
+                                    buttonColor: UsedColors.Blue,
+                                    onTap: () {
+                                      Get.back();
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Spacer(),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
               }),
         ],
         child: CMaker(
-          color: UsedColors.lightGray,
+            color: UsedColors.lightGray,
             circularRadius: 20,
             boxShadow: [
               BoxShadow(
@@ -159,7 +234,9 @@ class _NoDateTaskState extends State<NoDateTask> {
                             EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                         circularRadius: 20,
                         child: TMaker(
-                            text: (widget.file.length>8)?widget.file.substring(0,8)+"..":widget.file,
+                            text: (widget.file.length > 8)
+                                ? widget.file.substring(0, 8) + ".."
+                                : widget.file,
                             fontFamily: UsedFonts.UsedFont,
                             fontSize: 17,
                             fontWeight: FontWeight.w500,

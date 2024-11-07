@@ -175,7 +175,7 @@ class Task {
           ], //Member Tasks
         ],
         "hosny@gmail.com": [
-          "Database manager", //Member role in the progect,
+          "PM", //Member role in the progect,
           [
             [
               "no date", //the type of the task
@@ -204,7 +204,8 @@ class Task {
           ], //Member Tasks
         ],
       },
-      "images/4494497.png" //file image
+      "images/4494497.png", //file image,
+      "2024/10/23",//deadline
     ],
   }; //a simulation for local datebase tasks,
   static void AddLocalTask(String file, String title, String body, bool state) {
@@ -226,12 +227,20 @@ class Task {
     LocalData[file]!.removeAt(index);
   }
 
+  static void changeLocalTaskData(String file, int index, String title, String Body,int importance) {
+    LocalData[file]![index][1] = title;
+    LocalData[file]![index][2] = Body;
+    LocalData[file]![index][5] = importance;
+  }
   static void changeLocalTaskTitle(String file, int index, String title) {
     LocalData[file]![index][1] = title;
   }
 
   static void changeLocalTaskBody(String file, int index, String Body) {
     LocalData[file]![index][2] = Body;
+  }
+  static void changeLocalTaskImportance(String file, int index, int importance) {
+    LocalData[file]![index][5] = importance;
   }
 
   static void DoneLocalTask(String file, int index) {
@@ -261,6 +270,12 @@ class Task {
     TeamsData[Progect]![0][Member]![1].removeAt(index);
   }
 
+  static void changeTeamTaskData(String Progect, String Member, int index, String title, String Body,int importance) {
+    TeamsData[Progect]![0][Member]![1][index][1] = title;
+    TeamsData[Progect]![0][Member]![1][index][2] = Body;
+    TeamsData[Progect]![0][Member]![1][index][5] = importance;
+  }
+
   static void changeTeamTaskTitle(
       String Progect, String Member, int index, String title) {
     TeamsData[Progect]![0][Member]![1][index][1] = title;
@@ -269,6 +284,10 @@ class Task {
   static void changeTeamTaskBody(
       String Progect, String Member, int index, String body) {
     TeamsData[Progect]![0][Member]![1][index][2] = body;
+  }
+
+  static void changeTeamTaskImportance(String Progect, String Member, int index, int importance) {
+    TeamsData[Progect]![0][Member]![1][index][5] = importance;
   }
 
   static void DoneTeamTask(String Progect, String Member, int index) {

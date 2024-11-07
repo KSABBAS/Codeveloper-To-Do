@@ -153,7 +153,7 @@ class _PageTwoFileState extends State<PageTwoFile> {
                   child: ListView.builder(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: false,
-                    itemCount: Task.LocalData[widget.file]!.length,
+                    itemCount: Task.LocalData[widget.file]!.length-1,
                     itemBuilder: (context, index) {
                       return NoDateTask(
                             onCheck: () {

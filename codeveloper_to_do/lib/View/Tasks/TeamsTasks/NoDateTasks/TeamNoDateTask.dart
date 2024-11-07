@@ -1,6 +1,8 @@
 import 'package:codeveloper_to_do/Constants/ColorsUsded.dart';
 import 'package:codeveloper_to_do/Constants/Fonts.dart';
 import 'package:codeveloper_to_do/MyTools.dart';
+import 'package:codeveloper_to_do/View/Tasks/TeamsTasks/NoDateTasks/TeamEditNoDateTask.dart';
+import 'package:codeveloper_to_do/View/Tasks/TeamsTasks/NoDateTasks/ViewNoDateTask.dart';
 import 'package:codeveloper_to_do/data/Tasks/Task.dart';
 import 'package:flutter/material.dart';
 import 'package:focused_menu/focused_menu.dart';
@@ -30,7 +32,15 @@ class _TeamNoDateTaskState extends State<TeamNoDateTask> {
         animateMenuItems: true,
         menuItemExtent: 100,
         menuOffset: 20,
-        onPressed: () {},
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return ViewTeamNoDateTask(
+                  program: widget.program,member: widget.member, index: widget.index);
+            },
+          );
+        },
         menuItems: [
           FocusedMenuItem(
               title: CMaker(
@@ -54,7 +64,19 @@ class _TeamNoDateTaskState extends State<TeamNoDateTask> {
                 ),
               ),
               onPressed: () {
-                print("hi");
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return EditTeamNoDateTask(
+                        refreshTask: () {
+                          setState(() {
+                          });
+                        },
+                        program: widget.program,
+                        member: widget.member,
+                        index: widget.index,
+                      );
+                    });
               }),
           FocusedMenuItem(
               title: CMaker(
@@ -181,7 +203,7 @@ class _TeamNoDateTaskState extends State<TeamNoDateTask> {
                               int importance = Task.GetTeamTaskData(
                                   widget.program,widget.member ,widget.index)[5];
                               if (importance == 1) {
-                                return "Neglected";
+                                return "Not Now";
                               } else if (importance == 2) {
                                 return "In Mind";
                               } else if (importance == 3) {
