@@ -67,10 +67,10 @@ class _PageTwoState extends State<PageTwo> {
             crossAxisCount: 2,
             rowSpaces: 20,
             columnSpaces: 20,
-            onSelected: (SelectedIndex) {
-              Get.to(() => PageTwoFile(
-                  file: Task.LocalData.keys.elementAt(SelectedIndex)));
-            },
+            // onSelected: (SelectedIndex) {
+            //   Get.to(() => PageTwoFile(
+            //       file: Task.LocalData.keys.elementAt(SelectedIndex)));
+            // },
           ),
         CMaker(
           height: 250,

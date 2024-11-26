@@ -7,6 +7,7 @@ import 'package:codeveloper_to_do/data/Tasks/Task.dart';
 import 'package:flutter/material.dart';
 import 'package:focused_menu/focused_menu.dart';
 import 'package:focused_menu/modals.dart';
+import 'package:get/get.dart';
 
 class TeamNoDateTask extends StatefulWidget {
   TeamNoDateTask({super.key,
@@ -100,8 +101,60 @@ class _TeamNoDateTaskState extends State<TeamNoDateTask> {
                 ),
               ),
               onPressed: () {
-                Task.RemoveTeamTask(widget.program,widget.member ,widget.index);
-                widget.onCheck!();
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return Dialog(
+                      child: CMaker(
+                        circularRadius: 20,
+                        height: 200,
+                        width: double.infinity,
+                        color: UsedColors.White,
+                        child: Column(
+                          children: [
+                            Spacer(),
+                            TMaker(
+                              text: "Are you sure",
+                              fontSize: 40,
+                              fontWeight: FontWeight.w500,
+                              color: UsedColors.black,
+                              fontFamily: UsedFonts.UsedFont,
+                            ),
+                            PMaker(
+                              vertical: 30,
+                            ),
+                            CMaker(
+                              width: PageWidth(context) - 100,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  MyButton(
+                                    text: "Yes",
+                                    buttonColor: UsedColors.Blue,
+                                    onTap: () {
+                                      Get.back();
+                                      Task.RemoveTeamTask(widget.program,widget.member ,widget.index);
+                                      widget.onCheck!();
+                                    },
+                                  ),
+                                  MyButton(
+                                    text: "No",
+                                    buttonColor: UsedColors.Blue,
+                                    onTap: () {
+                                      Get.back();
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Spacer(),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
               }),
         ],
         child: CMaker(

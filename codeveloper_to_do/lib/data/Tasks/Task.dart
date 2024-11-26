@@ -1,3 +1,6 @@
+import 'package:get/get_navigation/src/nav2/get_router_delegate.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+
 class Task {
   static Map<String, List> LocalData = {
     "prayer": [
@@ -140,7 +143,6 @@ class Task {
       ],
       "images/5968764.png", //file image
     ],
-    
   }; //a simulation for local datebase tasks,
   static Map<String, List> TeamsData = {
     "Project 1": [
@@ -205,7 +207,7 @@ class Task {
         ],
       },
       "images/4494497.png", //file image,
-      "2024/10/23",//deadline
+      "2024/10/23", //deadline
     ],
   }; //a simulation for local datebase tasks,
   static void AddLocalTask(String file, String title, String body, bool state) {
@@ -227,11 +229,19 @@ class Task {
     LocalData[file]!.removeAt(index);
   }
 
-  static void changeLocalTaskData(String file, int index, String title, String Body,int importance) {
+  static void changeLocalTaskData(
+      String file, int index, String title, String Body, int importance) {
     LocalData[file]![index][1] = title;
     LocalData[file]![index][2] = Body;
     LocalData[file]![index][5] = importance;
   }
+
+  static void changeLocalTaskFileImage(String file, String imgUrl) {
+    if (LocalData.containsKey(file)) {
+      LocalData[file]![1] = imgUrl;
+    }
+  }
+
   static void changeLocalTaskTitle(String file, int index, String title) {
     LocalData[file]![index][1] = title;
   }
@@ -239,7 +249,9 @@ class Task {
   static void changeLocalTaskBody(String file, int index, String Body) {
     LocalData[file]![index][2] = Body;
   }
-  static void changeLocalTaskImportance(String file, int index, int importance) {
+
+  static void changeLocalTaskImportance(
+      String file, int index, int importance) {
     LocalData[file]![index][5] = importance;
   }
 
@@ -270,7 +282,8 @@ class Task {
     TeamsData[Progect]![0][Member]![1].removeAt(index);
   }
 
-  static void changeTeamTaskData(String Progect, String Member, int index, String title, String Body,int importance) {
+  static void changeTeamTaskData(String Progect, String Member, int index,
+      String title, String Body, int importance) {
     TeamsData[Progect]![0][Member]![1][index][1] = title;
     TeamsData[Progect]![0][Member]![1][index][2] = Body;
     TeamsData[Progect]![0][Member]![1][index][5] = importance;
@@ -286,7 +299,8 @@ class Task {
     TeamsData[Progect]![0][Member]![1][index][2] = body;
   }
 
-  static void changeTeamTaskImportance(String Progect, String Member, int index, int importance) {
+  static void changeTeamTaskImportance(
+      String Progect, String Member, int index, int importance) {
     TeamsData[Progect]![0][Member]![1][index][5] = importance;
   }
 
@@ -359,25 +373,25 @@ class Task {
     List<List> list = [];
     for (var index0 = 0; index0 < LocalData.length; index0++) {
       for (var i = 0;
-          i < LocalData[LocalData.keys.elementAt(index0)]!.length-1;
+          i < LocalData[LocalData.keys.elementAt(index0)]!.length - 1;
           i++) {
         if (LocalData[LocalData.keys.elementAt(index0)]![i][4])
           list.add([LocalData.keys.elementAt(index0), i]);
       }
     }
     TeamsData.forEach((projectName, projectData) {
-    Map<String, dynamic> members = projectData[0]; // Get the member data map
-    
-    members.forEach((memberEmail, memberInfo) {
-      String role = memberInfo[0];
-      List<dynamic> tasks = memberInfo[1];
+      Map<String, dynamic> members = projectData[0]; // Get the member data map
 
-      for (int i = 0; i < tasks.length; i++) {
-        // Create a formatted string with project name, member email, role, and task index
-        list.add([projectName, memberEmail,role, i]);
-      }
+      members.forEach((memberEmail, memberInfo) {
+        String role = memberInfo[0];
+        List<dynamic> tasks = memberInfo[1];
+
+        for (int i = 0; i < tasks.length; i++) {
+          // Create a formatted string with project name, member email, role, and task index
+          list.add([projectName, memberEmail, role, i]);
+        }
+      });
     });
-  });
     return list;
   }
 
